@@ -1,0 +1,6 @@
+[package]
+name = "hello_rust"
+version = "0.1.0"
+authors = ["Adi Catana <adrian.catana15@imperial.ac.uk>"]
+
+[dependencies]
