@@ -1,0 +1,13 @@
+TODO:
+	- prelude: https://doc.rust-lang.org/std/prelude/
+	- Cargo: https://doc.rust-lang.org/cargo/guide/
+	- std: https://doc.rust-lang.org/std/
+
+	- traits
+	- shadowing
+
+
+Tips:
+	- immutable by default
+	- associated function = static
+	- https://crates.io/ - for packages
