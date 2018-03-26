@@ -18,8 +18,11 @@ fn main() {
 
 	    println!("You guessed {}", guess);
 
-	    let guess : u32 = guess.trim().parse().
-	    	expect("Faled to convert to number");
+	    let guess : u32 = match guess.trim().parse() {
+	    	Ok(num) => num,
+	    	Err(_) => continue,
+	    	// expect("Faled to convert to number");
+	    };
 
 	    match guess.cmp(&random_number) {
 	    	std::cmp::Ordering::Less => println!("Too small!"),
