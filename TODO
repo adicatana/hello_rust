@@ -6,8 +6,20 @@ TODO:
 	- traits
 	- shadowing
 
+	- ownership
+	- references
+	- borrowing
+
+	- Resource Acquisition Is Initialization (RAII) + drop + patterns
+	- &str - slices, reread
+
 
 Tips:
 	- immutable by default
 	- associated function = static
 	- https://crates.io/ - for packages
+
+	Ownership:
+		1. Each value in Rust has a variable and it's called its owner.
+		2. There can only be one owner at a time.
+		3. If owner goes out of scope, the value will be dropped.

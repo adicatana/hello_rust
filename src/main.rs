@@ -5,16 +5,36 @@ use rand::Rng;
 const MAX_LOOP: u32 = 100_000;  
 
 fn main() {
+
+    let s = String::from("test string only");
+
+    // first_word(&s);
+
+    println!("{}", first_word(&s));
+
     // guessing_game();
-    for _ in 0..100 {
-        let fib = nth_fibonacci_recursive(6);
-        let fib_it = nth_fibonacci_iterative(6);
-        if fib != fib_it {
-            println!("Different values");
-        }
-    }
+    // for _ in 0..100 {
+    //     let fib = nth_fibonacci_recursive(6);
+    //     let fib_it = nth_fibonacci_iterative(6);
+    //     if fib != fib_it {
+    //         println!("Different values");
+    //     }
+    // }
     // println!("{}", fib);
     // println!("{}", fib_it);
+}
+
+fn first_word(s: &String) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+
+    &s[..]
+
 }
 
 fn nth_fibonacci_log(n: u32) -> u32 {
