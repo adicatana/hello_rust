@@ -4,6 +4,7 @@ use std::fs::File;
 use std::io::Read;
 use std::io::ErrorKind;
 use std::io;
+use std::fmt::Display;
 
 // use hello_rust::guessing_game;
 // use hello_rust::fibonacci;
@@ -38,8 +39,7 @@ pub fn read_username_from_file(file_name: &str) -> Result<String, io::Error> {
 
 }
 
-fn main() {
-
+fn custom_read() {
     let f = File::open(FILE_IN);
 
     let _f = match f {
@@ -65,6 +65,54 @@ fn main() {
 
     let _f = File::open(FILE_IN).unwrap();
     let _f = File::open(FILE_IN).expect("No such file.");
+}
+
+struct Point<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Point<T> {
+    fn x(&self) -> &T {
+        &self.x
+    }
+}
+
+pub trait MyTest {
+    fn test_function(&self) -> &str {
+        "Default implementation."
+    }
+}
+
+pub struct MyStruct {
+    pub x: u32,
+    pub y: String,
+}
+
+impl MyTest for MyStruct {
+    fn test_function(&self) -> &str {
+        println!("Test function call.");
+        &self.y
+    }
+}
+
+impl Display for MyStruct {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        write!(f, "({}, {})", self.x, self.y)
+    }
+}
+
+pub fn mock_function<T: MyTest + Display>(item: T) {
+    item.test_function();
+}
+
+fn main() {
+
+    let my_struct = MyStruct { x: 4, y: String::from("Test string") };
+
+    let res = my_struct.test_function();
+
+    println!("{:?}", res);
 
     // guessing_game::guessing_game();
 
