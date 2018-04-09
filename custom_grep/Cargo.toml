@@ -1,0 +1,6 @@
+[package]
+name = "custom_grep"
+version = "0.1.0"
+authors = ["Adi Catana <adrian.catana15@imperial.ac.uk>"]
+
+[dependencies]
